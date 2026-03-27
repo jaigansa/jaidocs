@@ -3,8 +3,6 @@ title = "Btop"
 date = "2025-02-14"
 draft = false
 author = "jaiganesh"
-tags = ["btop", "resource monitor", "system monitoring", "cli", "linux", "configuration"]
-categories = ["utilities", "system tools"]
 featured_image = "/images/thumbnails/btop.webp"
 summary = "`btop` is a fast, modern, and fully customizable command-line resource monitor that displays usage and stats for processor, memory, disks, network, and processes. It's a visually appealing and feature-rich alternative to traditional tools like `top` and `htop`, offering an interactive interface and extensive configuration options."
 +++

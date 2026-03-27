@@ -23,15 +23,33 @@ function toggleTheme() {
 
   function copyCode(button) {
     const wrapper = button.closest('.highlight-wrapper');
-    const code = wrapper.querySelector('pre').innerText;
+    const codeLines = wrapper.querySelectorAll('.cl');
     
-    navigator.clipboard.writeText(code).then(() => {
-        const originalText = button.innerText;
-        button.innerText = "COPIED";
-        setTimeout(() => {
-            button.innerText = originalText;
-        }, 2000);
-    });
+    if (codeLines.length > 0) {
+        const textToCopy = Array.from(codeLines)
+            .map(line => line.innerText)
+            .join('\n');
+
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            const originalText = button.innerText;
+            button.innerText = "COPIED";
+            setTimeout(() => {
+                button.innerText = originalText;
+            }, 2000);
+        });
+    } else {
+        // Fallback for blocks without .cl
+        const codeEl = wrapper.querySelector('pre');
+        if (codeEl) {
+            navigator.clipboard.writeText(codeEl.innerText).then(() => {
+                const originalText = button.innerText;
+                button.innerText = "COPIED";
+                setTimeout(() => {
+                    button.innerText = originalText;
+                }, 2000);
+            });
+        }
+    }
   }
 
   function updateBDCClock() {
@@ -123,12 +141,90 @@ function toggleTheme() {
 
     scramble(messages[0]);
   }
-  
-  document.addEventListener("DOMContentLoaded", () => {
+
+  function initSearch() {
+    const searchInput = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
+    if (!searchInput || !searchResults) return;
+
+    let searchIndex = [];
+
+    // Truly dynamic path resolution for index.json
+    const getSearchPath = () => {
+        const path = window.location.pathname;
+        const base = path.substring(0, path.indexOf('/', 1) + 1);
+        if (base.includes('jaidocs')) return '/jaidocs/index.json';
+        return '/index.json';
+    };
+
+    fetch(getSearchPath())
+        .then(response => response.json())
+        .then(data => searchIndex = data)
+        .catch(err => console.warn("Search index error", err));
+
+    // Open overlay on header input focus/click
+    searchInput.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+        openSearchOverlay();
+    });
+
+    function openSearchOverlay() {
+        searchResults.innerHTML = `
+            <button class="search-close" onclick="closeSearch()">CLOSE</button>
+            <div class="search-overlay-header">
+                <div class="search-overlay-title">SEARCH JAIDOC</div>
+                <input type="text" id="overlay-input" class="search-overlay-input" placeholder="Type here..." autocomplete="off">
+            </div>
+            <div id="search-items" class="search-items-container"></div>
+        `;
+        searchResults.classList.add('active');
+        const overlayInput = document.getElementById('overlay-input');
+        overlayInput.focus();
+
+        overlayInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            const itemsContainer = document.getElementById('search-items');
+            
+            if (query.length === 0) {
+                itemsContainer.innerHTML = '';
+                return;
+            }
+
+            const matches = searchIndex.filter(item => 
+                item.title.toLowerCase().includes(query) || 
+                item.summary.toLowerCase().includes(query)
+            ).slice(0, 10);
+
+            renderResults(matches, query);
+        });
+    }
+
+    function renderResults(results, query) {
+        const itemsContainer = document.getElementById('search-items');
+        if (results.length === 0) {
+            itemsContainer.innerHTML = `<div class="search-item">NO RESULTS FOR: "${query.toUpperCase()}"</div>`;
+        } else {
+            itemsContainer.innerHTML = results.map(item => `
+                <a href="${item.permalink}" class="search-item">
+                    <span class="search-item-title">${item.title}</span>
+                    <span class="search-item-summary">${item.summary.substring(0, 200)}...</span>
+                </a>
+            `).join('');
+        }
+    }
+  }
+
+  function closeSearch() {
+    const results = document.getElementById('search-results');
+    if (results) results.classList.remove('active');
+  }
+
+    document.addEventListener("DOMContentLoaded", () => {
     setTheme(getPreferredTheme());
     updateBDCClock();
     setInterval(updateBDCClock, 1000);
     initTypewriter();
+    initSearch();
 
     // Attach listeners to all latest-qrcode images
     document.querySelectorAll('.latest-qrcode img').forEach(img => {

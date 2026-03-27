@@ -1,7 +1,7 @@
 <div class="highlight-wrapper">
   <div class="highlight-header">
-    <span class="code-label">TERMINAL // {{ .Type | upper }}</span>
+    <span class="code-label">TERMINAL // {{ .Type | upper | default "BASH" }}</span>
     <button class="copy-btn" onclick="copyCode(this)">COPY</button>
   </div>
-  {{ .Inner | markdownify }}
+  {{ highlight .Inner .Type "lineNos=true,lineNumbersInTable=false" }}
 </div>

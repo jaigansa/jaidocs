@@ -3,8 +3,6 @@ title = "Sync Folders with Rsync"
 date = "2025-01-15"
 draft = false
 author = "jaiganesh"
-tags = ["rsync", "synchronization", "file transfer", "backup", "linux", "cli", "remote sync"]
-categories = ["utilities", "system administration"]
 featured_image = "/images/thumbnails/sync-folders-with-rsync.webp"
 summary = "Rsync (remote synchronize) is a fast and versatile command-line utility for synchronizing files and directories between two locations. It's widely used for backups, mirroring, and data migration due to its efficiency in transferring only the changed parts of files."
 +++

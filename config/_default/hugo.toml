@@ -2,21 +2,36 @@ baseURL = "https://jaigansa.github.io/jaidocs/"
 languageCode = 'en-us'
 title = 'Jaidoc'
 theme = 'jaidoc'
+canonifyURLs = true
 
+disableKinds = ["taxonomy", "term", "sitemap"]
 
-[permalinks]
-  tags = "/topics/:slug/"
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  page = ["HTML"]
+  section = ["HTML"]
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    lineChars = ""
+    lineNoStart = 1
+    lineNos = true
+    lineNumbersInTable = false
+    noClasses = false
+    style = "monokai"
+    tabWidth = 4
+    withCopyButton = false
 
-[taxonomies]
-  tag = "tags"
-  category = "categories"
+ignoreLogs = ["warning-goldmark-raw-html"]
 
-
-
+[build]
+  writeStats = true
+  renderToMemory = false
 
 [privacy]
   [privacy.instagram]
     disable = false
     simple = true
-

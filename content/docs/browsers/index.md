@@ -3,8 +3,6 @@ title = "Browsers"
 date = "2025-02-10"
 draft = false
 author = "jaiganesh"
-tags = ["linux", "google chrome", "mozilla firefox", "web browsers", "installation"]
-categories = ["software", "browsers"]
 featured_image = "/images/thumbnails/browsers.webp"
 summary = "Web browsers are arguably the most essential applications on any computer, serving as our primary gateway to the internet. With a multitude of options available, choosing and installing the right browser for your needs is crucial. This guide will walk you through the installation process for two of the most popular web browsers on Linux: Google Chrome and Mozilla Firefox."
 +++

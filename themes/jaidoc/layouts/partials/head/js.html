@@ -11,7 +11,7 @@
   {{- end }}
 {{- end }} -->
 
-{{- $scripts := slice "js/main.js" "js/copy-code.js" }}
+{{- $scripts := slice "js/main.js" }}
 {{- range $scripts }}
   {{- with resources.Get . }}
     {{- if eq hugo.Environment "development" }}

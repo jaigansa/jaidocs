@@ -1,15 +1,9 @@
 <div class="featured-banner">
-  {{ $image := "" }}
-
-  {{ if .Params.featured_image }}
-    {{ $image = .Params.featured_image | relURL  }}
-  {{ else if .Site.Params.featured_image }}
-    {{ $image = .Site.Params.featured_image | relURL }}
-  {{ end }}
+  {{ $image := .Params.featured_image | default site.Params.featured_image }}
 
   {{ with $image }}
     <img 
-        src="{{ . }}" 
+        src="{{ . | relURL }}" 
         alt="{{ $.Title }}" 
         class="w-full h-64 object-cover"
         loading="lazy"

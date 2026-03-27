@@ -3,8 +3,6 @@ title = "Pass: The Unix Password Store"
 date = "2025-03-13"
 draft = false
 author = "jaiganesh"
-tags = ["pass", "password manager", "cli", "linux", "gpg", "git", "security", "encryption"]
-categories = ["security", "utilities"]
 featured_image = "/images/thumbnails/pass-the-unix-password-store.webp"
 summary = "`pass`, also known as the Unix password store, is a simple, command-line-driven password manager that follows the Unix philosophy. It stores passwords in GPG-encrypted files, organized in a simple directory tree, and can be easily synchronized using Git."
 +++

@@ -3,8 +3,6 @@ title = "ADB CLI: Connect and Debug Android Devices"
 date = "2025-01-15"
 draft = false
 author = "jaiganesh"
-tags = ["adb", "android", "cli", "debugging", "wireless debugging", "usb debugging", "linux"]
-categories = ["android development", "tools"]
 featured_image = "/images/thumbnails/adb-cli-connect-and-debug-android-devices.webp"
 summary = "Android Debug Bridge (ADB) is a versatile command-line tool that lets you communicate with an Android-powered device. ADB provides various device actions, such as installing and debugging apps, and it offers access to a Unix shell that you can use to run commands on a device."
 +++
@@ -24,9 +22,9 @@ There are two primary ways to install ADB on your Linux system:
     *   Direct link for Linux: [linux adb latest](https://dl.google.com/android/repository/platform-tools-latest-linux.zip)
 
 2.  **Extract the Archive:**
-    ```bash
+```bash
 unzip platform-tools-latest-linux.zip
-    ```
+```
 
 3.  **Move to a convenient location:**
     ```bash

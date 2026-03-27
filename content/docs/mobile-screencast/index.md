@@ -3,8 +3,6 @@ title = "Mobile Screencast: Android to OBS via RTMP & IP Camera"
 date = "2025-01-15"
 draft = false
 author = "jaiganesh"
-tags = ["mobile screencast", "android", "obs", "rtmp", "nginx", "ffmpeg", "ip camera", "rtsp", "streaming", "linux"]
-categories = ["streaming", "tutorials"]
 featured_image = "/images/thumbnails/mobile-screencast-android-to-obs-via-rtmp-ip-camera.webp"
 summary = "Mobile screencasting allows you to display your mobile device's screen on another device, such as a computer, often for recording or live streaming. This is particularly useful for creating tutorials, showcasing mobile games, delivering presentations, or simply mirroring your phone's display to a larger screen."
 +++

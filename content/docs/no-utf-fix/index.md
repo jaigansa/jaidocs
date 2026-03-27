@@ -3,8 +3,6 @@ title = "No UTF-8 Locale Fix"
 date = "2025-02-14"
 draft = false
 author = "jaiganesh"
-tags = ["utf-8", "locale", "debian", "linux", "server", "configuration", "troubleshooting"]
-categories = ["linux", "system administration"]
 featured_image = "/images/thumbnails/no-utf-8-locale-fix.webp"
 summary = "Locales define the language, country, and character encoding settings for your system. UTF-8 is a variable-width character encoding that can represent every character in the Unicode character set, making it essential for displaying international characters and ensuring proper text handling in modern Linux environments."
 +++

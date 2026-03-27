@@ -3,8 +3,6 @@ title = "Hugo CLI"
 date = "2025-02-14"
 draft = false
 author = "jaiganesh"
-tags = ["hugo", "cli", "auto-completion", "bash", "linux", "productivity"]
-categories = ["development", "tools"]
 featured_image = "/images/thumbnails/hugo-cli.webp"
 summary = "Auto-completion for command-line interface (CLI) tools significantly enhances productivity by reducing typing, minimizing errors, and making it easier to discover available commands and options. If you want auto-completion for Hugo commands in the terminal (CLI), you can enable shell completion for Bash."
 +++

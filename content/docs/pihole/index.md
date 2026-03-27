@@ -3,8 +3,6 @@ title = "Pi-hole: Network-wide Ad Blocking"
 date = "2025-02-19"
 draft = false
 author = "jaiganesh"
-tags = ["pi-hole", "ad blocking", "dns", "network", "privacy", "linux", "configuration"]
-categories = ["networking", "security"]
 featured_image = "/images/thumbnails/adb-cli.png"
 summary = "Pi-hole is a Linux network-level advertisement and Internet tracker blocking application which acts as a DNS sinkhole, and optionally a DHCP server, for a private network. It is designed to protect your devices from unwanted content like ads, trackers, and malicious websites across your entire network, improving privacy and browsing speed."
 +++

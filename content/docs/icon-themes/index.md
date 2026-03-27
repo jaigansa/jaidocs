@@ -3,8 +3,6 @@ title = "Icon Themes"
 date = "2025-02-10"
 draft = false
 author = "jaiganesh"
-tags = ["linux", "icon themes", "desktop themes", "customization", "papirus", "arc kde", "kde plasma", "gnome"]
-categories = ["customization", "linux"]
 featured_image = "/images/thumbnails/icon-themes.webp"
 summary = "Customizing the look and feel of your Linux desktop is one of its most appealing features. Icon themes and desktop themes can dramatically change your user interface, making it more aesthetically pleasing and personalized. This guide will walk you through installing and applying some popular icon and desktop themes, specifically focusing on the Papirus Icon Theme and Arc KDE Theme, to enhance your Linux experience."
 +++

@@ -3,8 +3,6 @@ title = "Operating System"
 date = "2025-01-18"
 draft = false
 author = "jaiganesh"
-tags = ["linux", "installation", "kubuntu", "operating system", "etcher", "ventoy", "bootable usb"]
-categories = ["operating systems", "linux"]
 featured_image = "/images/thumbnails/operating-system.webp"
 summary = "Choosing and installing an operating system is a fundamental step in setting up any computer. Linux, a powerful and open-source operating system, offers unparalleled flexibility, security, and a vast ecosystem of software. This guide will walk you through the process of installing a Linux-based operating system, covering how to select a distribution, create bootable installation media, and perform the initial setup."
 +++

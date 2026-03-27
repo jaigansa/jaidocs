@@ -3,8 +3,6 @@ title = "Gemini-CLI Setup in Linux"
 date = "2024-10-29"
 draft = false
 author = "jaiganesh"
-tags = ["gemini", "cli", "linux", "installation", "configuration", "ai models", "google ai studio"]
-categories = ["ai", "tools"]
 featured_image = "/images/thumbnails/gemini-cli-setup-in-linux.webp"
 summary = "This guide will walk you through setting up the Gemini CLI on a Linux system. The Gemini CLI is a powerful tool for interacting with Google's Gemini models directly from your command line, enabling scripting, automation, and quick experimentation with AI models."
 +++
