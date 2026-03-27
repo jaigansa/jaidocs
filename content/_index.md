@@ -5,6 +5,5 @@ title = 'Home'
 featured_image = 'images/thumbnails/adb-cli.png'
 +++
 
-# Vannako! Jaigarage Users.
 ## Latest Posts
     

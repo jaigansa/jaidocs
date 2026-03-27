@@ -1,0 +1,15 @@
+baseURL = 'https://jaidoc.in/'
+languageCode = 'en-US'
+title = 'Jaidoc Theme'
+
+[params]
+  theme = "light"
+  featured_image = "images/wip_banner.webp"
+  author_name = "Jai Ganesh"
+  social_links = ["https://twitter.com/jaigansa"]
+
+
+[module]
+  [module.hugoVersion]
+    extended = false
+    min = "0.116.0"

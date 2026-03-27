@@ -1,14 +1,9 @@
-baseURL = "https://jaigansa.github.io/jaigarage/"
+baseURL = "https://jaigansa.github.io/jaidocs/"
 languageCode = 'en-us'
-title = 'Jaigarage'
-theme = 'jaigarage'
+title = 'Jaidoc'
+theme = 'jaidoc'
 
 
-
-[[module.mounts]]
-  source = 'static'
-  target = 'static'
-    
 [permalinks]
   tags = "/topics/:slug/"
 

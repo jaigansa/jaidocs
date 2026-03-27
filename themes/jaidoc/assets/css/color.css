@@ -1,0 +1,35 @@
+/* E-Ink / Top Secret Palette */
+:root {
+  --base: #FFFFFF; /* Stark white paper */
+  --mantle: #F0F0F0; /* Slightly aged paper */
+  --crust: #E0E0E0; /* Folders/Dividers */
+
+  --text: #000000; /* Deep black ink */
+  --subtext: #404040; /* Slightly faded ink */
+  --highlight: #000000; /* No colors, just bold/thick */
+
+  --primary: #000000; 
+  --secondary: #000000;
+  --accent: #000000;
+
+  --border: #000000; /* Thick black borders */
+  --shadow: none; /* No shadows */
+}
+
+/* Dark Mode (Inverted E-Ink) */
+.dark-theme {
+  --base: #000000; 
+  --mantle: #1A1A1A;
+  --crust: #333333;
+
+  --text: #FFFFFF; 
+  --subtext: #CCCCCC;
+  --highlight: #FFFFFF;
+
+  --primary: #FFFFFF; 
+  --secondary: #FFFFFF;
+  --accent: #FFFFFF;
+
+  --border: #FFFFFF;
+  --shadow: none;
+}

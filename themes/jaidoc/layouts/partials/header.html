@@ -1,0 +1,30 @@
+<div class="main-head">
+    <div class="brand-section">
+        <a href="{{ site.Home.RelPermalink }}" class="clock-brand" title="{{ site.Title }} // HOME">
+            <div id="bdc-clock" class="bdc-clock">
+                <div class="clock-group" id="group-h"></div>
+                <div class="clock-group" id="group-m"></div>
+                <div class="clock-group" id="group-s"></div>
+            </div>
+        </a>
+    </div>
+
+    <div class="header-tools">
+        <div class="nav-buttons">
+            <a href="{{ site.Home.RelPermalink }}" class="nav-btn" title="HOME">
+                <span class="icon">{{ partial "icon.html" "house" }}</span>
+            </a>
+        </div>
+
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="SEARCH_DATABASE..." autocomplete="off">
+        </div>
+
+        <div class="toggle-switch">
+            <label class="switch">
+                <input type="checkbox" id="theme-toggle" onclick="toggleTheme()">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+</div>

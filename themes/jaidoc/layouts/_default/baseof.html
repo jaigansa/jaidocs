@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}" >
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body>
+  <header>
+    {{ partial "header.html" . }}
+  </header>
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+  <footer>
+    {{ partial "footer.html" . }}
+  </footer>
+  <button id="floating-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="floating-btn" title="SCROLL_TO_TOP">
+    <span class="icon">{{ partial "icon.html" "arrow-up" }}</span>
+  </button>
+
+  <div id="qr-modal" class="qr-modal">
+    <img id="qr-modal-img" src="" alt="Enlarged QR Code">
+    <button onclick="closeQRModal()" class="qr-modal-close">CLOSE_SCAN</button>
+  </div>
+
+  {{ partial "foot.html" . }}
+</body>
+  
+</html>

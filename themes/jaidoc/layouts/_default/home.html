@@ -1,6 +1,6 @@
 {{ define "main" }}
 
-
+  <h1 id="typewriter-greeting" class="typewriter-text"></h1>
 
   {{ .Content }}
 
@@ -29,6 +29,8 @@
 
     <!-- Summary (Fallback if missing) -->
     <p class="latest-summary">{{ .Params.Summary | default "No summary available." }}</p>
+
+    <a href="{{ .RelPermalink }}" class="open-btn">OPEN</a>
     </div>
   </div>
 

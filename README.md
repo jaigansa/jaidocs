@@ -1,1 +1,1 @@
-# [Visit](https://jaigansa.github.io/jaigarage/)
+# [Visit](https://jaigansa.github.io/jaidocs/)

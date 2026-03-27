@@ -2,13 +2,9 @@
   {{ $image := "" }}
 
   {{ if .Params.featured_image }}
-    {{ $image = .Params.featured_image | absURL  }}
-  {{ else if .Parent }}
-    {{ if .Parent.Params.featured_image }}
-      {{ $image = .Parent.Params.featured_image | relURL }}
-    {{ end }}
+    {{ $image = .Params.featured_image | relURL  }}
   {{ else if .Site.Params.featured_image }}
-    {{ $image = .Site.Params.featured_image | absURL }}
+    {{ $image = .Site.Params.featured_image | relURL }}
   {{ end }}
 
   {{ with $image }}
