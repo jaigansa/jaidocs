@@ -13,12 +13,14 @@ summary = "`pass`, also known as the Unix password store, is a simple, command-l
 
 ## Installation
 
-## Installation
-
 To install `pass` on Debian-based systems (like Ubuntu):
 
 ```bash
+# debian
 sudo apt install pass
+
+# arch
+sudo pacman -S pass
 ```
 
 ## GPG Key Setup
@@ -46,7 +48,6 @@ gpg --list-secret-keys --keyid-format LONG
 ```
 Look for a line similar to `sec   rsa4096/YOUR_KEY_ID 2023-01-01 [SC]` and copy the `YOUR_KEY_ID` part (e.g., `0x12345678ABCDEF`).
 
-## use in pass
 
 ## Basic Pass Usage
 
@@ -161,40 +162,84 @@ Your GPG private key is the master key to your password store. Losing it means l
 ### Exporting Your GPG Keys
 
 1.  **Identify Your Key ID:**
-    ```bash
+```bash
 gpg --list-secret-keys --keyid-format LONG
-    ```
+```
     Note down the `YOUR_KEY_ID` (e.g., `0x12345678ABCDEF`).
 
 2.  **Export Private Key (CRITICAL):**
     This is the most sensitive part. Store `private-key-backup.asc` in a very secure location (e.g., encrypted USB drive, secure cloud storage, hardware security module).
 
-    ```bash
+```bash
 gpg --export-secret-keys --armor YOUR_KEY_ID > private-key-backup.asc
-    ```
+```
 
 3.  **Export Public Key (Optional but Recommended):**
     While not as sensitive, backing up your public key is good practice, especially if you share it or need it for verification.
 
-    ```bash
+```bash
 gpg --export --armor YOUR_KEY_ID > public-key-backup.asc
-    ```
+```
 
-### Importing Your GPG Keys
 
-If you need to restore your GPG keys on a new system or after a loss:
 
-1.  **Import Private Key:**
-    ```bash
-gpg --import private-key-backup.asc
-    ```
-    You will be prompted for the passphrase of the private key.
+### 1. Import Your Private GPG Key
+Without the private key that originally encrypted the passwords, the files are unreadable. Import your backup (`.asc` or `.gpg` file):
 
-2.  **Import Public Key (if needed):**
-    ```bash
-gpg --import public-key-backup.asc
-    ```
+```bash
+gpg --import my_private_key.asc
+```
 
-## Conclusion
+### 2. Set "Ultimate" Trust (Critical)
+GPG often won't allow `pass` to decrypt files unless the key is manually trusted on the new system.
+1. Find your Key ID: `gpg --list-secret-keys --keyid-format LONG`
+2. Edit the key: `gpg --edit-key <YOUR_KEY_ID>`
+3. Type **`trust`**, select **`5`** (Ultimate), type **`y`**, then **`save`**.
 
-`pass` stands out as a powerful, secure, and flexible password manager that aligns perfectly with the Unix philosophy of doing one thing well. By leveraging GPG encryption and Git for synchronization, it provides a robust solution for managing your digital credentials. Integrating `pass` into your daily workflow can significantly enhance your security posture and streamline access to your sensitive information.
+### 3. Restore the Password Directory
+If you have a backup folder (e.g., from an external drive or cloud), move it to your home directory:
+
+```bash
+mv /path/to/backup/.password-store ~/.password-store
+```
+
+**If you use Git for sync:**
+Instead of moving a folder, clone your existing password repository:
+```bash
+git clone user@server:/path/to/repo.git ~/.password-store
+```
+
+### 4. Re-Initialize (Optional but Recommended)
+If `pass` doesn't immediately recognize the store or if you've moved to a new GPG key, re-initialize the store to ensure the `.gpg-id` file is correct:
+
+```bash
+pass init <YOUR_GPG_ID>
+```
+*This doesn't delete passwords; it just re-encrypts the internal ID file to match your current GPG key.*
+
+---
+
+### 5. Verify the Restore
+Try to show a password to see if the decryption works:
+```bash
+pass show <FOLDER/SITE_NAME>
+```
+
+### 6. Troubleshooting "GPG: Decryption Failed"
+If you get a "No secret key" or "Decryption failed" error on Arch/Hyprland:
+* **Check the Agent:** Ensure `gpg-agent` is running.
+* **Pinentry:** Ensure you have a pinentry program installed (`sudo pacman -S pinentry`) so you can actually type your passphrase.
+* **Permissions:** Ensure your `~/.gnupg` folder has the correct permissions:
+  ```bash
+  chmod 700 ~/.gnupg
+  find ~/.gnupg -type f -exec chmod 600 {} +
+  find ~/.gnupg -type d -exec chmod 700 {} +
+  ```
+
+---
+
+### Syncing with Git?
+If your `pass` store was previously a Git repo, you can re-enable the auto-syncing features by running:
+```bash
+pass git pull
+```
